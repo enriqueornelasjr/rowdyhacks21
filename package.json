@@ -1,0 +1,27 @@
+{
+  "dependencies": {
+    "cookie-parser": "^1.4.5",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "shortid": "^2.2.16",
+    "socket.io": "^4.0.0"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "rowdyhacks21",
+  "version": "1.0.0",
+  "main": "server.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/enriqueornelasjr/rowdyhacks21.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/enriqueornelasjr/rowdyhacks21/issues"
+  },
+  "homepage": "https://github.com/enriqueornelasjr/rowdyhacks21#readme",
+  "description": ""
+}
