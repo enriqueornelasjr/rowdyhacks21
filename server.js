@@ -80,6 +80,20 @@ addEvent(new Event({
     date: new Date()
 }));
 
+setTimeout(() => {
+    addEvent(new Event({
+        lat: 29.425170742301603,
+        long: -98.59477365422787,
+        user: '29x8s0',
+        type: 'INFO',
+        title: 'Heavy Snow',
+        description: 'Heavy snow on intersection',
+        mediaIDS: ['sjskdn'],
+        date: new Date()
+    }));
+    
+}, 10000)
+
 
 addEvent(new Event({
     lat: 29.425137703455654,

@@ -1,7 +1,19 @@
 let events = [];
 var activeInfoWindow;
 $(window).on('load', () => {
+    const notyf = new Notyf({
+        types: [
+            {
+                type: 'info',
+                background: 'rgb(255,165,0, 0.89)',
+                icon: false
+            }
+        ]
+    });
     const addMarker = (event) => {
+        event.mediaURLS.push(event.mediaURLS[0]);
+        event.mediaURLS.push(event.mediaURLS[0]);
+        event.mediaURLS.push(event.mediaURLS[0]);
         const contentString =
             '<div class="infoWindowContent">' +
             '<div class="leftHalfInfoWindow">' +
@@ -15,7 +27,7 @@ $(window).on('load', () => {
             '</div>' +
             '<div class="rightHalfInfoWindow">' +
             '<div>' +
-            '<img class="infoWindowImg" src="' + event.mediaURLS[0] + '" />' +
+            '<img class="infoWindowImg openGallery" data-gallery="' + encodeURIComponent(JSON.stringify(event.mediaURLS)) + '" src="' + event.mediaURLS[0] + '" />' +
             '</div>' +
             '</div>' +
             '</div>';
@@ -55,6 +67,10 @@ $(window).on('load', () => {
             addMarker(events[i]);
     });
     socket.on('event', (event) => {
+        notyf.open({
+            type: 'info',
+            message: 'Event reported at <address>'
+        });
         events.push(event);
         addMarker(event);
     });
@@ -98,6 +114,35 @@ $(window).on('load', () => {
                 ]
             }
         ]
+    });
+    $('body').on('click', '.openGallery', (e) => {
+        const items = [];
+        const mediaURLS = JSON.parse(decodeURIComponent($(e.target).attr('data-gallery')));
+        const galleryItems = [];
+        for (i in mediaURLS) {
+            const url = (mediaURLS[i]);
+            galleryItems.push({
+                src: url
+            });
+        }
+        $(e.target).magnificPopup({
+            removalDelay: 300,
+            items: galleryItems,
+            mainClass: 'mfp-fade',
+            gallery: {
+                enabled: true
+            },
+            type: 'image' // this is default type
+        }).magnificPopup('open');
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+    }).on('contextmenu', (e) => {
+        if (activeInfoWindow) {
+            activeInfoWindow.close();
+            activeInfoWindow = null;
+        }
+
     });
 
 })
