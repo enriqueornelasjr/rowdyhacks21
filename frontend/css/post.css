@@ -1,39 +1,10 @@
-#map {
-    height: 100%;
-}
-
-html,
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Roboto', sans-serif;
+    padding-top: 30px !important;
 }
 
-.leftHalfInfoWindow {
-    display: inline-block;
-    width: 65%;
-    vertical-align: middle;
-}
-.rightHalfInfoWindow {
-    display: inline-block;
-    width: 35%;
-    vertical-align: middle;
-}
-.infoWindowHeading {
-    position: relative;
-    top: -15px;
-}
-.infoWindowContent {
-}
-
-.infoWindowImg {
-    max-width: 95% !important;
-    padding: 5px;
+.img-thumb {
+    max-width: 60px;
     cursor: pointer;
-}
-
-.centerText {
-    text-align: center;
 }
 
 /* overlay at start */

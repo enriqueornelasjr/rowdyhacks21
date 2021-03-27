@@ -5,10 +5,16 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const shortid = require('shortid');
 const app = express();
+const fileUpload = require('express-fileupload');
 
+const { Storage } = require('@google-cloud/storage');
+const storage = new Storage();
+const bucket = storage.bucket('rowdyhacks');
 const server = http.createServer(app);
 const io = require('socket.io')(server);
 
+app.use(fileUpload());
+app.use(express.json());
 app.use(cookieParser());
 app.use(session({ secret: '23x8c8v0x9886w' }));
 app.use(express.static('frontend'));
@@ -91,7 +97,7 @@ setTimeout(() => {
         mediaIDS: ['sjskdn'],
         date: new Date()
     }));
-    
+
 }, 10000)
 
 
@@ -155,6 +161,28 @@ app.get('/home', (req, res) => {
     sendPage(res, 'home.html');
 });
 
+app.get('/post', (req, res) => {
+    sendPage(res, 'post.html');
+});
+
+app.post('/upload', (req, res) => {
+    const files = req.files;
+    for (i in files) {
+        const file = files[i];
+        const type = i.substring(0, 3);
+        const id = type + '_' + shortid.generate();
+        const gFile = bucket.file(id);
+        const wStream = gFile.createWriteStream();
+        wStream.on('error', function (err) {
+            console.log('error', err);
+        })
+        .on('finish', function () {
+            
+        });
+        wStream.write(file.data);
+        wStream.end();
+    }
+});
 
 io.on('connection', (socket) => {
     socket.emit('events', db.events);
