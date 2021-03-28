@@ -11,7 +11,6 @@ $(window).on('load', () => {
         ]
     });
     const addMarker = (event) => {
-        console.log(event);
         let time = new Date(event.date);
         time = time.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
         let previewURL = event.mediaURLS[0];
