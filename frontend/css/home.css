@@ -1,73 +1,81 @@
 #map {
-    height: 100%;
+  height: 100%;
 }
 
 html,
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
 }
 
 .leftHalfInfoWindow {
-    display: inline-block;
-    width: 65%;
-    vertical-align: middle;
+  display: inline-block;
+  width: 65%;
+  vertical-align: middle;
 }
 .rightHalfInfoWindow {
-    display: inline-block;
-    width: 35%;
-    vertical-align: middle;
+  display: inline-block;
+  width: 35%;
+  vertical-align: middle;
 }
 .infoWindowHeading {
-    
 }
 .infoWindowContent {
 }
 
 .infoWindowImg {
-    max-width: 95% !important;
-    padding: 5px;
-    cursor: pointer;
+  max-width: 95% !important;
+  padding: 5px;
+  cursor: pointer;
 }
 
 hr.solid {
   border-top: 1px solid rgb(156, 153, 153);
 }
 .centerText {
-    text-align: center;
+  text-align: center;
 }
 
 /* overlay at start */
 .mfp-fade.mfp-bg {
-    opacity: 0;
-  
-    -webkit-transition: all 0.15s ease-out;
-    -moz-transition: all 0.15s ease-out;
-    transition: all 0.15s ease-out;
-  }
-  /* overlay animate in */
-  .mfp-fade.mfp-bg.mfp-ready {
-    opacity: 0.8;
-  }
-  /* overlay animate out */
-  .mfp-fade.mfp-bg.mfp-removing {
-    opacity: 0;
-  }
-  
-  /* content at start */
-  .mfp-fade.mfp-wrap .mfp-content {
-    opacity: 0;
-  
-    -webkit-transition: all 0.15s ease-out;
-    -moz-transition: all 0.15s ease-out;
-    transition: all 0.15s ease-out;
-  }
-  /* content animate it */
-  .mfp-fade.mfp-wrap.mfp-ready .mfp-content {
-    opacity: 1;
-  }
-  /* content animate out */
-  .mfp-fade.mfp-wrap.mfp-removing .mfp-content {
-    opacity: 0;
-  }
+  opacity: 0;
+
+  -webkit-transition: all 0.15s ease-out;
+  -moz-transition: all 0.15s ease-out;
+  transition: all 0.15s ease-out;
+}
+/* overlay animate in */
+.mfp-fade.mfp-bg.mfp-ready {
+  opacity: 0.8;
+}
+/* overlay animate out */
+.mfp-fade.mfp-bg.mfp-removing {
+  opacity: 0;
+}
+
+/* content at start */
+.mfp-fade.mfp-wrap .mfp-content {
+  opacity: 0;
+
+  -webkit-transition: all 0.15s ease-out;
+  -moz-transition: all 0.15s ease-out;
+  transition: all 0.15s ease-out;
+}
+/* content animate it */
+.mfp-fade.mfp-wrap.mfp-ready .mfp-content {
+  opacity: 1;
+}
+/* content animate out */
+.mfp-fade.mfp-wrap.mfp-removing .mfp-content {
+  opacity: 0;
+}
+
+#new-post {
+  position: fixed;
+  bottom: 15px;
+  right: 30px;
+  z-index: 99999;
+  height: 72px;
+  cursor: pointer;
+}

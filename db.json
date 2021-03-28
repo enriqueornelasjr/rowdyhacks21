@@ -1,130 +1,379 @@
 {
-  "users": [
-    {
-      "userId": "29x8s0",
-      "pass": "jask98d8s",
-      "phoneNumber": "9562469297"
-    },
-    {
-      "userId": "edrftgyh",
-      "pass": "zsxdcfvgb",
-      "phoneNumber": "2104787188"
-    }
-  ],
-  "events": [
-    {
-      "eventId": "Pdf-QOceU",
-      "lat": 29.425170742301603,
-      "long": -98.49477365422787,
-      "address": "103 N Flores St, San Antonio, TX 78205",
-      "user": "29x8s0",
-      "type": "INFO",
-      "title": "Heavy Snow",
-      "description": "Heavy snow on intersection",
-      "mediaIDS": ["sjskdn"],
-      "mediaCount": 1,
-      "date": "2021-03-27T19:19:40.797Z",
-      "dateFormatted": "Saturday, March 27, 2021",
-      "mediaURLS": [
-        "https://static01.nyt.com/images/2020/01/18/reader-center/18xp-weather/merlin_167291904_1088632b-57d3-40d1-8988-cd05d3333870-superJumbo.jpg"
-      ]
-    },
-    {
-      "eventId": "Yt4E_Ribp8",
-      "lat": 29.425137703455654,
-      "long": -98.49660577769659,
-      "address": "327 W Commerce St, San Antonio, TX 78205",
-      "user": "29x8s0",
-      "type": "EMERGENCY",
-      "title": "Car Crash",
-      "description": "Car Crash, drivers inacessible with nearby snow",
-      "mediaIDS": ["298dssd"],
-      "mediaCount": 1,
-      "date": "2021-03-27T19:19:40.812Z",
-      "dateFormatted": "Saturday, March 27, 2021",
-      "mediaURLS": [
-        "https://www.ksat.com/resizer/Rsy9sH-HbK13qfyM1mbvsdPCII8=/1280x720/smart/filters:format(jpeg):strip_exif(true):strip_icc(true):no_upscale(true):quality(65)/cloudfront-us-east-1.images.arcpublishing.com/gmg/C3LVNECVTFA5ZM5FOE3OTAURH4.png"
-      ]
-    },
-    {
-      "eventId": "qN0pe6wl-_",
-      "lat": 29.42401921083364,
-      "long": -98.50282983580581,
-      "address": "Frio Street Building, 310 S Frio St, San Antonio, TX 78207",
-      "user": "edrftgyh",
-      "type": "RESOURCE",
-      "title": "Available Water Bottles",
-      "description": "Clean Drinking water bottles available for distribution.",
-      "mediaIDS": ["29x8ss"],
-      "mediaCount": 1,
-      "date": "2021-03-27T19:19:40.813Z",
-      "dateFormatted": "Saturday, March 27, 2021",
-      "mediaURLS": [
-        "https://whatsnewlaporte.com/wp-content/uploads/2016/01/IMG_0022.jpg"
-      ]
-    },
-    {
-      "eventId": "n8eBD-kIS",
-      "lat": 29.425170742301603,
-      "long": -98.59477365422786,
-      "address": "Texas 151 Access Rd, San Antonio, TX 78237",
-      "user": "29x8s0",
-      "type": "INFO",
-      "title": "Heavy Snow",
-      "description": "Heavy snow on intersection",
-      "mediaIDS": ["sjskdn"],
-      "mediaCount": 1,
-      "date": "2021-03-27T19:19:50.825Z",
-      "dateFormatted": "Saturday, March 27, 2021",
-      "mediaURLS": [
-        "https://static01.nyt.com/images/2020/01/18/reader-center/18xp-weather/merlin_167291904_1088632b-57d3-40d1-8988-cd05d3333870-superJumbo.jpg"
-      ]
-    },
-    {
-      "eventId": "tThZJgOKd",
-      "lat": 29.4247916,
-      "long": -98.4938078,
-      "user": "edrftgyh",
-      "type": "emergency",
-      "title": "Need water",
-      "description": "water shortage",
-      "mediaIDS": [],
-      "mediaCount": 0,
-      "date": "2021-03-27T23:32:49.968Z",
-      "dateFormatted": "Saturday, March 27, 2021",
-      "address": "S Main Plaza, San Antonio, TX 78205",
-      "mediaURLS": []
-    },
-    {
-      "eventId": "Ulbxajy5G",
-      "lat": 29.4250283,
-      "long": -98.4916612,
-      "user": "edrftgyh",
-      "type": "emergency",
-      "title": "Need water",
-      "description": "water shortage",
-      "mediaIDS": [],
-      "mediaCount": 0,
-      "date": "2021-03-27T23:34:21.132Z",
-      "dateFormatted": "Saturday, March 27, 2021",
-      "address": "155 E Commerce St, San Antonio, TX 78205",
-      "mediaURLS": []
-    },
-    {
-      "eventId": "gQhgomlzk",
-      "lat": 29.4250283,
-      "long": -98.4916612,
-      "user": "edrftgyh",
-      "type": "emergency",
-      "title": "Need water",
-      "description": "water shortage",
-      "mediaIDS": ["img_ecn8I2qLR"],
-      "mediaCount": 1,
-      "date": "2021-03-27T23:35:43.113Z",
-      "dateFormatted": "Saturday, March 27, 2021",
-      "address": "155 E Commerce St, San Antonio, TX 78205",
-      "mediaURLS": ["https://storage.googleapis.com/rowdyhacks/img_ecn8I2qLR"],
-      "latestEvent": "[LAST EVENTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT]"
-    }
-  ]
+    "users": [
+        {
+            "userId": "uVumhuk54",
+            "pass": "d00e4d9c8aa27175586eb5d220c7edf5",
+            "phoneNumber": "1112223333"
+        },
+        {
+            "userId": "Bp53VKTkD",
+            "pass": "827ccb0eea8a706c4c34a16891f84e7b",
+            "phoneNumber": "2104787188"
+        }
+    ],
+    "events": [
+        {
+            "eventId": "Ui1m2moun",
+            "lat": 26.1419748,
+            "long": -97.97936,
+            "user": "uVumhuk54",
+            "type": "emergency",
+            "description": "Thomas the cat is stuck on top of the tree. Mrs. Doubtfire needs help getting her cat down from the tree.",
+            "mediaIDS": [
+                "img_X1hTxY2HP.jpg",
+                "img_aAOnwdZmSI.jpg"
+            ],
+            "mediaCount": 2,
+            "date": "2021-03-28T02:41:20.751Z",
+            "dateFormatted": "Saturday, March 27, 2021",
+            "address": "1708 Christian Ct, Weslaco, TX 78596",
+            "mediaURLS": [
+                "https://storage.googleapis.com/rowdyhacks/img_aAOnwdZmSI.jpg",
+                "https://storage.googleapis.com/rowdyhacks/img_X1hTxY2HP.jpg"
+            ],
+            "title": "Cat Stuck on way  up to Tree"
+        },
+        {
+            "eventId": "FYLV-yDXC",
+            "lat": 29.51705875547964,
+            "long": -98.72669709237843,
+            "user": "Bp53VKTkD",
+            "type": "emergency",
+            "title": "Too much snow on street",
+            "description": "All streets are fully covered in snow to where is it very dangerous to drive on them. I cannot go out and get groceries",
+            "mediaIDS": [
+                "img_9cYQyXspI.jpg",
+                "img_6QYskqrJeo.jpg"
+            ],
+            "mediaCount": 2,
+            "date": "2021-03-28T03:38:24.872Z",
+            "dateFormatted": "Saturday, March 27, 2021",
+            "address": "11827 Silver Prairie, San Antonio, TX 78254",
+            "mediaURLS": [
+                "https://storage.googleapis.com/rowdyhacks/img_9cYQyXspI.jpg",
+                "https://storage.googleapis.com/rowdyhacks/img_6QYskqrJeo.jpg"
+            ]
+        },
+        {
+            "eventId": "WY0q04s2c",
+            "lat": 29.3672803,
+            "long": -98.4180489,
+            "user": "Bp53VKTkD",
+            "type": "emergency",
+            "title": "Car accident",
+            "description": "Someone just got into a car accident. It doesn't look good. It's a bad wreck and first responders are coming already. ",
+            "mediaIDS": [
+                "img_hj3YwubuS.jpeg",
+                "img_owG6ibKFWW.jpg"
+            ],
+            "mediaCount": 2,
+            "date": "2021-03-28T04:04:06.116Z",
+            "dateFormatted": "Saturday, March 27, 2021",
+            "address": "3998 Killarney Dr, San Antonio, TX 78223",
+            "mediaURLS": [
+                "https://storage.googleapis.com/rowdyhacks/img_owG6ibKFWW.jpg",
+                "https://storage.googleapis.com/rowdyhacks/img_hj3YwubuS.jpeg"
+            ]
+        },
+        {
+            "eventId": "ZbA7oBD1R",
+            "lat": 29.3684188,
+            "long": -98.6023039,
+            "user": "uVumhuk54",
+            "type": "emergency",
+            "title": "Airplane parts fell from sky",
+            "description": "There have been some airplane parts the fell out of the sky. I heard a loud boom and there was stuff falling outside. My neighbor's got some damage in their front yard.",
+            "mediaIDS": [
+                "img_UQy2pvi9h.jpeg",
+                "img_SiB47kPLQM.jpeg"
+            ],
+            "mediaCount": 2,
+            "date": "2021-03-28T04:14:02.277Z",
+            "dateFormatted": "Saturday, March 27, 2021",
+            "address": "150 Rustleaf Dr, San Antonio, TX 78242",
+            "mediaURLS": [
+                "https://storage.googleapis.com/rowdyhacks/img_UQy2pvi9h.jpeg",
+                "https://storage.googleapis.com/rowdyhacks/img_SiB47kPLQM.jpeg"
+            ]
+        },
+        {
+            "eventId": "BAfwOMAy8",
+            "lat": 29.3853925,
+            "long": -98.58583510000001,
+            "user": "Bp53VKTkD",
+            "type": "resource",
+            "title": "Free Water!!!",
+            "description": "They are giving out free cases of water to all those in need since there is no running water. They are offering up water to those also in boil notice areas.",
+            "mediaIDS": [
+                "img_UL0kIBNvS.jpg",
+                "img_Uxq7HSzMoE.jpg"
+            ],
+            "mediaCount": 2,
+            "date": "2021-03-28T04:21:01.065Z",
+            "dateFormatted": "Saturday, March 27, 2021",
+            "address": "120 JBSA-LACKLAND 78236-5220, Dominguez St, San Antonio, TX 78243",
+            "mediaURLS": [
+                "https://storage.googleapis.com/rowdyhacks/img_UL0kIBNvS.jpg",
+                "https://storage.googleapis.com/rowdyhacks/img_Uxq7HSzMoE.jpg"
+            ]
+        },
+        {
+            "eventId": "jWWER_gz6",
+            "lat": 29.418592,
+            "long": -98.5917348,
+            "user": "uVumhuk54",
+            "type": "resource",
+            "title": "Food Donation",
+            "description": "The food bank is opening up more hours of operations to help with distributing more food to all in need. Please Come By!!",
+            "mediaIDS": [
+                "img_cmfmHaIe2.jpg",
+                "img_BdRpXISVRH.jpg"
+            ],
+            "mediaCount": 2,
+            "date": "2021-03-28T04:25:01.167Z",
+            "dateFormatted": "Saturday, March 27, 2021",
+            "address": "5200 Enrique M. Barrera Pkwy, San Antonio, TX 78227",
+            "mediaURLS": [
+                "https://storage.googleapis.com/rowdyhacks/img_BdRpXISVRH.jpg",
+                "https://storage.googleapis.com/rowdyhacks/img_cmfmHaIe2.jpg"
+            ]
+        },
+        {
+            "eventId": "iUW5M3Bca",
+            "lat": 29.4878203,
+            "long": -98.5071871,
+            "user": "Bp53VKTkD",
+            "type": "resource",
+            "title": "Free and Low Income Pet Vaccinations",
+            "description": "Get your pet spayed or neutered for free or low cost. ",
+            "mediaIDS": [
+                "img_f4GxEeXM0.jpg",
+                "img_b3BAl-d0Dn.jpg",
+                "vid_DK0pChfRY7.mp4"
+            ],
+            "mediaCount": 3,
+            "date": "2021-03-28T04:32:45.277Z",
+            "dateFormatted": "Saturday, March 27, 2021",
+            "address": "1362 Basse Rd, San Antonio, TX 78212",
+            "mediaURLS": [
+                "https://storage.googleapis.com/rowdyhacks/img_b3BAl-d0Dn.jpg",
+                "https://storage.googleapis.com/rowdyhacks/img_f4GxEeXM0.jpg",
+                "https://storage.googleapis.com/rowdyhacks/vid_DK0pChfRY7.mp4"
+            ]
+        },
+        {
+            "eventId": "7Dw84spYb",
+            "lat": 29.4878203,
+            "long": -98.5071871,
+            "user": "uVumhuk54",
+            "type": "resource",
+            "title": "Free and Low Income Pet Vaccinations",
+            "description": "Get your pet spayed or neutered for free or low cost. ",
+            "mediaIDS": [
+                "img_CXI-TDgOW.jpg",
+                "img_DirjD935r7.jpg",
+                "vid_djYt62C8Sw.mp4"
+            ],
+            "mediaCount": 3,
+            "date": "2021-03-28T04:32:55.798Z",
+            "dateFormatted": "Saturday, March 27, 2021",
+            "address": "1362 Basse Rd, San Antonio, TX 78212",
+            "mediaURLS": [
+                "https://storage.googleapis.com/rowdyhacks/img_CXI-TDgOW.jpg",
+                "https://storage.googleapis.com/rowdyhacks/img_DirjD935r7.jpg",
+                "https://storage.googleapis.com/rowdyhacks/vid_djYt62C8Sw.mp4"
+            ]
+        },
+        {
+            "eventId": "_3uMv5eMu",
+            "lat": 29.4878203,
+            "long": -98.5071871,
+            "user": "Bp53VKTkD",
+            "type": "resource",
+            "title": "Free and Low Income Pet Vaccinations",
+            "description": "Get your pet spayed or neutered for free or low cost. ",
+            "mediaIDS": [
+                "img_uWGEO4rb3.jpg",
+                "img_nATn7ZGNKm.jpg",
+                "vid_apH4NAtmuE.mp4"
+            ],
+            "mediaCount": 3,
+            "date": "2021-03-28T04:34:11.133Z",
+            "dateFormatted": "Saturday, March 27, 2021",
+            "address": "1362 Basse Rd, San Antonio, TX 78212",
+            "mediaURLS": [
+                "https://storage.googleapis.com/rowdyhacks/img_nATn7ZGNKm.jpg",
+                "https://storage.googleapis.com/rowdyhacks/img_uWGEO4rb3.jpg",
+                "https://storage.googleapis.com/rowdyhacks/vid_apH4NAtmuE.mp4"
+            ]
+        },
+        {
+            "eventId": "wzCbNObJG",
+            "lat": 29.4337291,
+            "long": -98.57738130000001,
+            "user": "uVumhuk54",
+            "type": "resource",
+            "title": "Free Coding Camp!!!",
+            "description": "Free coding camp being offered at the community center for all ages. Other workshops are available. ",
+            "mediaIDS": [
+                "img_FJa20qAN4.jpg",
+                "img_c9nRlNZsCE.jpg",
+                "vid_iL9o-oNmA_.mp4"
+            ],
+            "mediaCount": 3,
+            "date": "2021-03-28T04:41:59.604Z",
+            "dateFormatted": "Saturday, March 27, 2021",
+            "address": "5919 W Commerce St, San Antonio, TX 78237",
+            "mediaURLS": [
+                "https://storage.googleapis.com/rowdyhacks/img_FJa20qAN4.jpg",
+                "https://storage.googleapis.com/rowdyhacks/img_c9nRlNZsCE.jpg",
+                "https://storage.googleapis.com/rowdyhacks/vid_iL9o-oNmA_.mp4"
+            ]
+        },
+        {
+            "eventId": "5qnYHclaK",
+            "lat": 29.4248422,
+            "long": -98.72509699999999,
+            "user": "Bp53VKTkD",
+            "type": "information",
+            "title": "CPS Energy outtage",
+            "description": "CPS Energy is reporting an outage to customers in the Amhurst subdivision on the far west side of San Antonio. CPS employees are already on the scene making proper repairs. More details to come soon. ",
+            "mediaIDS": [
+                "img_2IpvpLwMF.jpeg",
+                "img_mG3Ef7Izbu.jpg"
+            ],
+            "mediaCount": 2,
+            "date": "2021-03-28T04:57:23.676Z",
+            "dateFormatted": "Saturday, March 27, 2021",
+            "address": "American Lotus, San Antonio, TX",
+            "mediaURLS": [
+                "https://storage.googleapis.com/rowdyhacks/img_2IpvpLwMF.jpeg",
+                "https://storage.googleapis.com/rowdyhacks/img_mG3Ef7Izbu.jpg"
+            ]
+        },
+        {
+            "eventId": "xJ18F17Sk",
+            "lat": 29.3533823,
+            "long": -98.4969239,
+            "user": "uVumhuk54",
+            "type": "information",
+            "title": "Water line Burst",
+            "description": "Reporting a water line bursting in the neighborhood.",
+            "mediaIDS": [
+                "img_Sp9IjkpMK.gif",
+                "img_qPVtcSteIv.jpg"
+            ],
+            "mediaCount": 2,
+            "date": "2021-03-28T05:13:20.349Z",
+            "dateFormatted": "Sunday, March 28, 2021",
+            "address": "301 Sussex Ave, San Antonio, TX 78221",
+            "mediaURLS": [
+                "https://storage.googleapis.com/rowdyhacks/img_qPVtcSteIv.jpg",
+                "https://storage.googleapis.com/rowdyhacks/img_Sp9IjkpMK.gif"
+            ]
+        },
+        {
+            "eventId": "ylkC-LLTX",
+            "lat": 29.4257704,
+            "long": -98.48607620000001,
+            "user": "Bp53VKTkD",
+            "type": "information",
+            "title": "National Night Out!!",
+            "description": "It is National Night Out and we can all take some time out to breathe some fresh air. Always remember to Social Distance!",
+            "mediaIDS": [
+                "img_ezEluwvL0.jpg",
+                "img_K2ehhNGEVv.webp"
+            ],
+            "mediaCount": 2,
+            "date": "2021-03-28T05:32:23.643Z",
+            "dateFormatted": "Sunday, March 28, 2021",
+            "address": "300 Alamo Plaza, San Antonio, TX 78205",
+            "mediaURLS": [
+                "https://storage.googleapis.com/rowdyhacks/img_K2ehhNGEVv.webp",
+                "https://storage.googleapis.com/rowdyhacks/img_ezEluwvL0.jpg"
+            ]
+        },
+        {
+            "eventId": "1Yq7eng5w",
+            "lat": 29.4720342,
+            "long": -98.7068449,
+            "user": "uVumhuk54",
+            "type": "information",
+            "title": "Election Poll has no line",
+            "description": "Election Poll has no lines. Get out and vote.",
+            "mediaIDS": [
+                "img_HreumnrWj.jpg",
+                "img_GsGOPFYBG4.jpeg"
+            ],
+            "mediaCount": 2,
+            "date": "2021-03-28T05:40:33.091Z",
+            "dateFormatted": "Sunday, March 28, 2021",
+            "address": "3535 N Ellison Dr, San Antonio, TX 78251",
+            "mediaURLS": [
+                "https://storage.googleapis.com/rowdyhacks/img_GsGOPFYBG4.jpeg",
+                "https://storage.googleapis.com/rowdyhacks/img_HreumnrWj.jpg"
+            ]
+        },
+        {
+            "eventId": "vNgNQVHjI",
+            "lat": 26.2077851,
+            "long": -97.96928919999999,
+            "user": "Bp53VKTkD",
+            "type": "emergency",
+            "title": "Water Shortage",
+            "description": "We appreciate any water donations",
+            "mediaIDS": [
+                "img_CbUvHPtxC.jpg"
+            ],
+            "mediaCount": 1,
+            "date": "2021-03-28T09:15:10.574Z",
+            "dateFormatted": "Sunday, March 28, 2021",
+            "address": "5011 North Mile 3 1/2 West, Weslaco, TX 78599",
+            "mediaURLS": [
+                "https://storage.googleapis.com/rowdyhacks/img_CbUvHPtxC.jpg"
+            ]
+        },
+        {
+            "eventId": "u7cMkOJmk",
+            "lat": 26.2077851,
+            "long": -97.96928919999999,
+            "user": "uVumhuk54",
+            "type": "resource",
+            "title": "Enrique Ornelas",
+            "description": "Extra waters",
+            "mediaIDS": [
+                "vid_tPmDp4Jqe.mp4",
+                "img_dXouEM41Lu.jpg"
+            ],
+            "mediaCount": 2,
+            "date": "2021-03-28T09:16:42.409Z",
+            "dateFormatted": "Sunday, March 28, 2021",
+            "address": "5012 North Mile 3 1/2 West, Weslaco, TX 78599",
+            "mediaURLS": [
+                "https://storage.googleapis.com/rowdyhacks/img_dXouEM41Lu.jpg",
+                "https://storage.googleapis.com/rowdyhacks/vid_tPmDp4Jqe.mp4"
+            ]
+        },
+        {
+            "eventId": "tThRpzYyV",
+            "lat": 26.2077851,
+            "long": -97.96928919999999,
+            "user": "Bp53VKTkD",
+            "type": "resource",
+            "title": "Enrique Ornelas",
+            "description": "Enrique",
+            "mediaIDS": [
+                "vid_s-j9HhnDt.mp4",
+                "img_WICd0s6Zgx.jpg"
+            ],
+            "mediaCount": 2,
+            "date": "2021-03-28T09:17:00.189Z",
+            "dateFormatted": "Sunday, March 28, 2021",
+            "address": "1708 Christian Court, Weslaco, TX 78599",
+            "mediaURLS": [
+                "https://storage.googleapis.com/rowdyhacks/img_WICd0s6Zgx.jpg",
+                "https://storage.googleapis.com/rowdyhacks/vid_s-j9HhnDt.mp4"
+            ]
+        }
+    ]
 }

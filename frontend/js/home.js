@@ -12,12 +12,18 @@ $(window).on('load', () => {
     });
     const addMarker = (event) => {
         console.log(event);
+        let time = new Date(event.date);
+        time = time.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
+        let previewURL = event.mediaURLS[0];
+        const fileName = previewURL.substring(previewURL.lastIndexOf('/')+1);
+        if(fileName.substring(0, 3) === 'vid')
+            previewURL = '../img/play-button.png';
         const contentString =
             '<div class="infoWindowContent">' +
             '<div class="leftHalfInfoWindow">' +
             '<h2 class="infoWindowHeading centerText">' + event.title + '</h2>' +
             '<div>' +
-            '<p class="centerText">' + 
+            '<p class="centerText">' +
             event.description
             +
             '</p>' +
@@ -26,13 +32,13 @@ $(window).on('load', () => {
             event.address +
             '</p>' +
             '<p class="centerText">' +
-            event.dateFormatted +
+            event.dateFormatted + ' ' + time +
             '</p>' +
             '</div>' +
             '</div>' +
             '<div class="rightHalfInfoWindow">' +
             '<div>' +
-            '<img class="infoWindowImg openGallery" data-gallery="' + encodeURIComponent(JSON.stringify(event.mediaURLS)) + '" src="' + event.mediaURLS[0] + '" />' +
+            '<img class="infoWindowImg openGallery" data-gallery="' + encodeURIComponent(JSON.stringify(event.mediaURLS)) + '" src="' + previewURL + '" />' +
             '</div>' +
             '</div>' +
             '</div>';
@@ -44,12 +50,13 @@ $(window).on('load', () => {
         if (event.type.toUpperCase() === 'EMERGENCY') {
             markerURL = "http://maps.google.com/mapfiles/ms/icons/red-dot.png"
         }
-        else if (event.type.toUpperCase()  === 'INFO') {
+        else if (event.type.toUpperCase() === 'INFORMATION') {
             markerURL = "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
         }
-        else if (event.type.toUpperCase()  === 'RESOURCE') {
+        else if (event.type.toUpperCase() === 'RESOURCE') {
             markerURL = "http://maps.google.com/mapfiles/ms/icons/green-dot.png"
         }
+        
         const marker = new google.maps.Marker({
             position: { lat: event.lat, lng: event.long },
             map,
@@ -74,14 +81,22 @@ $(window).on('load', () => {
     socket.on('event', (event) => {
         notyf.open({
             type: 'info',
-            message: 'Event reported at <address>'
+            message: 'Event reported at '+event.address
         });
         events.push(event);
         addMarker(event);
     });
     const SanAntonio = { lat: 29.424349, lng: -98.4936 };
     const map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 18,
+        streetViewControl: true,
+        streetViewControlOptions: {
+          position: google.maps.ControlPosition.LEFT_TOP,
+        },
+        zoomControl: true,
+        zoomControlOptions: {
+            position: google.maps.ControlPosition.LEFT_BOTTOM,
+        },
+        zoom: 11,
         center: SanAntonio,
         styles: [
             {
@@ -126,7 +141,7 @@ $(window).on('load', () => {
         const galleryItems = [];
         for (i in mediaURLS) {
             const url = mediaURLS[i];
-            const type = url.substring(url.lastIndexOf('/')+1, url.lastIndexOf('/')+4);
+            const type = url.substring(url.lastIndexOf('/') + 1, url.lastIndexOf('/') + 4);
             galleryItems.push({
                 src: url,
                 type: type === 'vid' ? 'iframe' : undefined

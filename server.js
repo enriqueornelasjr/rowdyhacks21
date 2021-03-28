@@ -13,12 +13,18 @@ const storage = new Storage();
 const bucket = storage.bucket('rowdyhacks');
 const server = http.createServer(app);
 const io = require('socket.io')(server);
+const crypto = require('crypto');
+
+
+const saltRounds = 10;
 
 app.use(fileUpload());
 app.use(express.json());
 app.use(cookieParser());
 app.use(session({ secret: '23x8c8v0x9886w' }));
 app.use(express.static('frontend'));
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'frontend', 'views'));
 
 const pagesDir = path.join(__dirname, 'frontend', 'pages');
 
@@ -73,58 +79,85 @@ const addEvent = async (event) => {
     saveDB();
 }
 
-/*
-addEvent(new Event({
-    lat: 29.42401921083364,
-    long: -98.50282983580581,
-    user: 'edrftgyh',
-    type: 'RESOURCE',
-    title: 'Available Water Bottles',
-    description: 'Clean Drinking water bottles available for distribution.',
-    mediaIDS: ['29x8ss'],
-    date: new Date()
-}));
-
-
-
-db.users.push({
-    userId: '29x8s0',
-    pass: 'jask98d8s',
-    phoneNumber: '9562469297'
-});
-
-*/
-
-/*
-app.get('/', function (req, res) {
-    if (req.session.page_views) {
-        req.session.page_views++;
-        res.send('You visited this page ' + req.session.page_views + ' times');
-    } else {     
-        req.session.page_views = 1;
-        res.send('Welcome to this page for the first time!');
-    }
-});
-*/
-
 app.get('/', (req, res) => {
-    sendPage(res, 'index.html');
+    //sendPage(res, 'index.html');
+    res.redirect('/home');
 });
 
 app.get('/signup', (req, res) => {
     sendPage(res, 'signup.html');
 });
 
-app.get('/home', (req, res) => {
-    sendPage(res, 'home.html');
+
+
+app.get('/login', (req, res) => {
+    if (session.uId)
+        res.redirect('/home');
+    else
+        sendPage(res, 'signin.html');
+});
+
+app.get('/signin', (req, res) => {
+    sendPage(res, 'signin.html');
+});
+
+app.get('/signout', (req, res) => {
+    delete session.uId;
+    res.redirect('/home');
+});
+
+app.get('/postlist', (req, res) => {
+    if (!session.uId)
+        res.redirect('/home');
+    else {
+        res.render('postlist', {
+            userId: session.uid,
+            events: db.events.filter(e => e.user === session.uId)
+        });
+    }
+
+});
+
+app.get('/home', function (req, res) {
+    res.render('home', {
+        isLoggedIn: session.uId
+    });
 });
 
 app.get('/post', (req, res) => {
-    sendPage(res, 'post.html');
+    if (!session.uId)
+        res.redirect('/home');
+    else
+        res.render('post', {
+            isLoggedIn: session.uId
+        });
+});
+
+app.get('/update/:postId', (req, res) => {
+    if (!session.uId)
+        res.redirect('/home');
+    else {
+        const userId = session.uId;
+        const postId = req.params.postId;
+        const post = db.events.filter(event => { return event.eventId === postId; });
+        if (post.length === 0 || post[0].user !== userId)
+            res.redirect('/home');
+        else
+            res.render('update', {
+                event: post[0]
+            });
+    }
+});
+
+app.get('/session/:userId', function (req, res) {
+    const userId = req.params.userId;
+    for (i in db.users)
+        if (db.users[i].userId === userId)
+            session.uId = userId;
+    res.redirect('/home');
 });
 
 app.post('/upload', async (req, res) => {
-    console.log('upload')
     const event = JSON.parse(req.body.event);
     const filesObj = req.files;
     const files = [];
@@ -140,6 +173,7 @@ app.post('/upload', async (req, res) => {
         state,
         city,
         zip,
+        userId,
         long,
         lat
     } = event;
@@ -184,14 +218,13 @@ app.post('/upload', async (req, res) => {
         lat = results.lat;
     }
     else {
-        console.log('alrady had long and lat :D')
         address = streetAddress + ', ' + city + ', ' + state + ' ' + zip;
     }
 
     addEvent(new Event({
         lat,
         long,
-        user: 'edrftgyh',
+        user: userId,
         type,
         title: name,
         description,
@@ -203,11 +236,44 @@ app.post('/upload', async (req, res) => {
 
 
 });
+app.post('/update', async (req, res) => {
+    const event = JSON.parse(req.body.event);
+    let found = false;
+    for (i = 0; !found && i < db.events.length; i++) {
+        const _event = db.events[i];
+        if (_event.eventId === event.postId) {
+            const replaceSpaces = (str) => {
+                return str.trim().replace(/\s+/g, '+');
+            }
+            const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${replaceSpaces(event.address)},${replaceSpaces(event.city)},${event.state},${event.country}&key=AIzaSyDJXLxcAB-ZWpwwVbAK6K5bZTvWzcfn7OY`;
+            const response = await getData(url);
+            const body = response.results[0];
+            const address = body.formatted_address.substring(0, body.formatted_address.lastIndexOf(','));
+            const results = body.geometry.location;
+            const long = results.lng;
+            const lat = results.lat;
 
+            const newEvent = { ..._event };
+            newEvent.lat = lat;
+            newEvent.long = long;
+            newEvent.type = event.type;
+            newEvent.title = event.name;
+            newEvent.description = event.description;
+            newEvent.address = address;
+
+            db.events[i] = newEvent;
+            found = true;
+
+        }
+    }
+    if (found)
+        saveDB();
+    res.send("Success");
+});
 io.on('connection', (socket) => {
     socket.emit('events', db.events);
     socket.on('geolocate', async (coords, callback) => {
-        
+
         const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${coords.lat},${coords.long}&key=AIzaSyDJXLxcAB-ZWpwwVbAK6K5bZTvWzcfn7OY`;
         const response = await getData(url);
         const body = response.results[0].address_components;
@@ -230,7 +296,54 @@ io.on('connection', (socket) => {
             lat,
             country
         });
-    })
+    });
+
+    socket.on('register', (user, callback) => {
+        const phoneNumber = user.phoneNumber.replace(/\W/g, '');
+        let found = false;
+        for (i in db.users) {
+            const u = db.users[i];
+            if (!found && u.phoneNumber === phoneNumber)
+                found = true;
+        }
+        if (found)
+            callback('Phone number is already in use');
+        else {
+            const hash = crypto.createHash('md5').update(user.password).digest("hex");
+            const userId = shortid.generate()
+            db.users.push({
+                userId: userId,
+                pass: hash,
+                phoneNumber
+            });
+            saveDB();
+            callback(null, '/session/' + userId);
+        }
+    });
+    socket.on('signin', (user, callback) => {
+        const phoneNumber = user.phoneNumber.replace(/\W/g, '');
+        let found = false;
+        const hash = crypto.createHash('md5').update(user.pass).digest("hex");
+        for (let i = 0; !found && i < db.users.length; i++) {
+            const _user = db.users[i];
+            if (phoneNumber === _user.phoneNumber)
+                if (hash === _user.pass) {
+                    found = true;
+                    callback('/session/' + _user.userId);
+                }
+        }
+        if (!found)
+            callback(false);
+    });
+
+    socket.on('delete', (postId) => {
+        for (i = 0; i < db.events.length; i++) {
+            if (db.events[i].eventId === postId) {
+                db.events.splice(i, 1);
+            }
+        }
+        saveDB();
+    });
 });
 
 server.listen(3000);

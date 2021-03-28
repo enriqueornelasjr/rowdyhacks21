@@ -24,19 +24,30 @@
             <li class="nav-item active">
               <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
             </li>
+            <%if (isLoggedIn) { %>
             <li class="nav-item">
               <a class="nav-link" href="/postlist">Personal Postings</a>
             </li>
+            <% } %>
+            <%if (isLoggedIn) { %>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
               <div class="dropdown-menu" aria-labelledby="dropdown01">
                 <a class="dropdown-item" href="/signout">Sign Out</a>
               </div>
             </li>
+            <%} else { %>
+                <li class="nav-item">
+                  <a class="nav-link" href="/login">Log In</a>
+                </li>
+            <% } %>
           </ul>
         </div>
       </nav>
     <div id="map"></div>
+    <%if (isLoggedIn) { %>
+        <a href="/post"><img id="new-post" src="../img/fab.png" /></a>
+    <% } %>
 </body>
 <script src="../js/jquery.min.js"></script>
 <script src="../js/socket.io.min.js"></script>

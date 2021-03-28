@@ -16,7 +16,7 @@ $(window).on('load', () => {
                 lat: position.coords.latitude,
                 long: position.coords.longitude
             }
-            
+
             socket.emit('geolocate', coords, (data) => {
                 $('#city').val(data.city);
                 $('#address').val(data.street);
@@ -82,6 +82,14 @@ $(window).on('load', () => {
         form.classList.add('was-validated');
         if (!validity)
             return;
+        if (medias.length === 0) {
+            Swal.fire(
+                'Warning',
+                'Please select at least one media to upload',
+                'warning'
+            )
+            return;
+        }
         const name = $('#name').val();
         const type = $('#type').val();
         const description = $('#description').val();
@@ -100,9 +108,7 @@ $(window).on('load', () => {
                 country,
                 state,
                 city,
-                zip,
-                long,
-                lat
+                zip
             },
             media: medias
         }
@@ -123,7 +129,15 @@ $(window).on('load', () => {
             data: formData,
             contentType: false,
             success: () => {
-                alert('submitted :D')
+                Swal.fire(
+                    'Event Posted',
+                    'Thank you! Your event has been submitted and will be processed shortly',
+                    'success'
+                ).then(() => {
+                    setTimeout(() => {
+                        location.href = "/home";
+                    }, 700);
+                })
             },
             processData: false,
         });
