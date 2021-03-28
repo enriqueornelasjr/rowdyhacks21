@@ -143,6 +143,7 @@ app.post('/upload', async (req, res) => {
         long,
         lat
     } = event;
+    console.log(event);
     let streetAddress = event.address;
     res.send("Success");
 
@@ -177,13 +178,13 @@ app.post('/upload', async (req, res) => {
         const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${replaceSpaces(streetAddress)},${replaceSpaces(city)},${state},${country}&key=AIzaSyDJXLxcAB-ZWpwwVbAK6K5bZTvWzcfn7OY`;
         const response = await getData(url);
         const body = response.results[0];
-        console.log(response)
         address = body.formatted_address.substring(0, body.formatted_address.lastIndexOf(','));
-        const results = body.geometry.bounds.northeast;
+        const results = body.geometry.location;
         long = results.lng;
         lat = results.lat;
     }
     else {
+        console.log('alrady had long and lat :D')
         address = streetAddress + ', ' + city + ', ' + state + ' ' + zip;
     }
 
@@ -205,6 +206,31 @@ app.post('/upload', async (req, res) => {
 
 io.on('connection', (socket) => {
     socket.emit('events', db.events);
+    socket.on('geolocate', async (coords, callback) => {
+        
+        const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${coords.lat},${coords.long}&key=AIzaSyDJXLxcAB-ZWpwwVbAK6K5bZTvWzcfn7OY`;
+        const response = await getData(url);
+        const body = response.results[0].address_components;
+        const street = body[0].long_name + ' ' + body[1].long_name;
+        const city = body[2].long_name;
+        const state = body[4].short_name;
+        const country = body[5].long_name;
+        const zip = body[6].long_name;
+
+        const results = response.results[0].geometry.location;
+        const long = results.lng;
+        const lat = results.lat;
+
+        callback({
+            street,
+            city,
+            state,
+            zip,
+            long,
+            lat,
+            country
+        });
+    })
 });
 
 server.listen(3000);

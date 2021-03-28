@@ -7,8 +7,28 @@ function Media(data) {
 
 let medias = [];
 let currInd = 0;
+let long, lat;
 $(window).on('load', () => {
     const socket = io();
+    $('#current-location').click(() => {
+        navigator.geolocation.getCurrentPosition((position) => {
+            const coords = {
+                lat: position.coords.latitude,
+                long: position.coords.longitude
+            }
+            
+            socket.emit('geolocate', coords, (data) => {
+                $('#city').val(data.city);
+                $('#address').val(data.street);
+                $('#zip').val(data.zip);
+                $('#state').val(data.state);
+                $('#country').val(data.country);
+                long = data.long;
+                lat = data.lat;
+            });
+        });
+
+    })
     $('#add-media').click(() => {
         $('#media-form').click();
     });
@@ -80,7 +100,9 @@ $(window).on('load', () => {
                 country,
                 state,
                 city,
-                zip
+                zip,
+                long,
+                lat
             },
             media: medias
         }
@@ -93,7 +115,7 @@ $(window).on('load', () => {
             else
                 name = type + '_' + ind + '.' + val.ext;
             formData.append(name, val.file);
-        })
+        });
         formData.append('event', JSON.stringify(data.event));
         $.ajax({
             type: "POST",

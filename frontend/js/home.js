@@ -126,7 +126,7 @@ $(window).on('load', () => {
         const galleryItems = [];
         for (i in mediaURLS) {
             const url = mediaURLS[i];
-            const type = url.substring(url.lastIndexOf('/')+1, url.lastIndexOf('/')+3);
+            const type = url.substring(url.lastIndexOf('/')+1, url.lastIndexOf('/')+4);
             galleryItems.push({
                 src: url,
                 type: type === 'vid' ? 'iframe' : undefined

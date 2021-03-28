@@ -1,228 +1,130 @@
 {
-    "users": [
-        {
-            "userId": "29x8s0",
-            "pass": "jask98d8s",
-            "phoneNumber": "9562469297"
-        },
-        {
-            "userId": "edrftgyh",
-            "pass": "zsxdcfvgb",
-            "phoneNumber": "2104787188"
-        }
-    ],
-    "events": [
-        {
-            "eventId": "Pdf-QOceU",
-            "lat": 29.425170742301603,
-            "long": -98.49477365422787,
-            "address": "103 N Flores St, San Antonio, TX 78205",
-            "user": "29x8s0",
-            "type": "INFO",
-            "title": "Heavy Snow",
-            "description": "Heavy snow on intersection",
-            "mediaIDS": [
-                "sjskdn"
-            ],
-            "mediaCount": 1,
-            "date": "2021-03-27T19:19:40.797Z",
-            "dateFormatted": "Saturday, March 27, 2021",
-            "mediaURLS": [
-                "https://static01.nyt.com/images/2020/01/18/reader-center/18xp-weather/merlin_167291904_1088632b-57d3-40d1-8988-cd05d3333870-superJumbo.jpg"
-            ]
-        },
-        {
-            "eventId": "Yt4E_Ribp8",
-            "lat": 29.425137703455654,
-            "long": -98.49660577769659,
-            "address": "327 W Commerce St, San Antonio, TX 78205",
-            "user": "29x8s0",
-            "type": "EMERGENCY",
-            "title": "Car Crash",
-            "description": "Car Crash, drivers inacessible with nearby snow",
-            "mediaIDS": [
-                "298dssd"
-            ],
-            "mediaCount": 1,
-            "date": "2021-03-27T19:19:40.812Z",
-            "dateFormatted": "Saturday, March 27, 2021",
-            "mediaURLS": [
-                "https://www.ksat.com/resizer/Rsy9sH-HbK13qfyM1mbvsdPCII8=/1280x720/smart/filters:format(jpeg):strip_exif(true):strip_icc(true):no_upscale(true):quality(65)/cloudfront-us-east-1.images.arcpublishing.com/gmg/C3LVNECVTFA5ZM5FOE3OTAURH4.png"
-            ]
-        },
-        {
-            "eventId": "qN0pe6wl-_",
-            "lat": 29.42401921083364,
-            "long": -98.50282983580581,
-            "address": "Frio Street Building, 310 S Frio St, San Antonio, TX 78207",
-            "user": "edrftgyh",
-            "type": "RESOURCE",
-            "title": "Available Water Bottles",
-            "description": "Clean Drinking water bottles available for distribution.",
-            "mediaIDS": [
-                "29x8ss"
-            ],
-            "mediaCount": 1,
-            "date": "2021-03-27T19:19:40.813Z",
-            "dateFormatted": "Saturday, March 27, 2021",
-            "mediaURLS": [
-                "https://whatsnewlaporte.com/wp-content/uploads/2016/01/IMG_0022.jpg"
-            ]
-        },
-        {
-            "eventId": "n8eBD-kIS",
-            "lat": 29.425170742301603,
-            "long": -98.59477365422786,
-            "address": "Texas 151 Access Rd, San Antonio, TX 78237",
-            "user": "29x8s0",
-            "type": "INFO",
-            "title": "Heavy Snow",
-            "description": "Heavy snow on intersection",
-            "mediaIDS": [
-                "sjskdn"
-            ],
-            "mediaCount": 1,
-            "date": "2021-03-27T19:19:50.825Z",
-            "dateFormatted": "Saturday, March 27, 2021",
-            "mediaURLS": [
-                "https://static01.nyt.com/images/2020/01/18/reader-center/18xp-weather/merlin_167291904_1088632b-57d3-40d1-8988-cd05d3333870-superJumbo.jpg"
-            ]
-        },
-        {
-            "eventId": "tThZJgOKd",
-            "lat": 29.4247916,
-            "long": -98.4938078,
-            "user": "edrftgyh",
-            "type": "emergency",
-            "title": "Need water",
-            "description": "water shortage",
-            "mediaIDS": [],
-            "mediaCount": 0,
-            "date": "2021-03-27T23:32:49.968Z",
-            "dateFormatted": "Saturday, March 27, 2021",
-            "address": "S Main Plaza, San Antonio, TX 78205",
-            "mediaURLS": []
-        },
-        {
-            "eventId": "Ulbxajy5G",
-            "lat": 29.4250283,
-            "long": -98.4916612,
-            "user": "edrftgyh",
-            "type": "emergency",
-            "title": "Need water",
-            "description": "water shortage",
-            "mediaIDS": [],
-            "mediaCount": 0,
-            "date": "2021-03-27T23:34:21.132Z",
-            "dateFormatted": "Saturday, March 27, 2021",
-            "address": "155 E Commerce St, San Antonio, TX 78205",
-            "mediaURLS": []
-        },
-        {
-            "eventId": "gQhgomlzk",
-            "lat": 29.4250283,
-            "long": -98.4916612,
-            "user": "edrftgyh",
-            "type": "emergency",
-            "title": "Need water",
-            "description": "water shortage",
-            "mediaIDS": [
-                "img_ecn8I2qLR"
-            ],
-            "mediaCount": 1,
-            "date": "2021-03-27T23:35:43.113Z",
-            "dateFormatted": "Saturday, March 27, 2021",
-            "address": "155 E Commerce St, San Antonio, TX 78205",
-            "mediaURLS": [
-                "https://storage.googleapis.com/rowdyhacks/img_ecn8I2qLR"
-            ]
-        },
-        {
-            "eventId": "LsZxmapYS",
-            "lat": 26.1421075,
-            "long": -97.9792581,
-            "user": "edrftgyh",
-            "type": "emergency",
-            "title": "asdfsdf",
-            "description": "asf",
-            "mediaIDS": [],
-            "mediaCount": 0,
-            "date": "2021-03-28T00:01:17.524Z",
-            "dateFormatted": "Saturday, March 27, 2021",
-            "address": "1708 Christian Ct, Weslaco, TX 78596",
-            "mediaURLS": []
-        },
-        {
-            "eventId": "JMnTpBOR0",
-            "lat": 26.1431273,
-            "long": -97.9797291,
-            "user": "edrftgyh",
-            "type": "emergency",
-            "title": "asdfsdf",
-            "description": "asf",
-            "mediaIDS": [],
-            "mediaCount": 0,
-            "date": "2021-03-28T00:02:32.078Z",
-            "dateFormatted": "Saturday, March 27, 2021",
-            "address": "1718 Christian Ct, Weslaco, TX 78596",
-            "mediaURLS": []
-        },
-        {
-            "eventId": "KFGQuG3_Y",
-            "lat": 26.1431273,
-            "long": -97.9797291,
-            "user": "edrftgyh",
-            "type": "emergency",
-            "title": "asdf",
-            "description": "asdf",
-            "mediaIDS": [],
-            "mediaCount": 0,
-            "date": "2021-03-28T00:04:02.575Z",
-            "dateFormatted": "Saturday, March 27, 2021",
-            "address": "1718 Christian Ct, Weslaco, TX 78596",
-            "mediaURLS": []
-        },
-        {
-            "eventId": "Tba-t0kv-",
-            "lat": 26.1431273,
-            "long": -97.9797291,
-            "user": "edrftgyh",
-            "type": "emergency",
-            "title": "asdf",
-            "description": "asdf",
-            "mediaIDS": [
-                "img_rdAnS_YaL.jpg"
-            ],
-            "mediaCount": 1,
-            "date": "2021-03-28T00:04:31.388Z",
-            "dateFormatted": "Saturday, March 27, 2021",
-            "address": "1718 Christian Ct, Weslaco, TX 78596",
-            "mediaURLS": [
-                "https://storage.googleapis.com/rowdyhacks/img_rdAnS_YaL.jpg"
-            ]
-        },
-        {
-            "eventId": "XwaiwucYZ",
-            "lat": 26.142825,
-            "long": -97.97909039999999,
-            "user": "edrftgyh",
-            "type": "emergency",
-            "title": "asdf",
-            "description": "asdf",
-            "mediaIDS": [
-                "img_ds95c0lw_.jpg",
-                "vid_cIf9PgQJ9F.mp4",
-                "img_X_u-99SV42.png"
-            ],
-            "mediaCount": 3,
-            "date": "2021-03-28T00:05:10.709Z",
-            "dateFormatted": "Saturday, March 27, 2021",
-            "address": "1711 Christian Ct, Weslaco, TX 78596",
-            "mediaURLS": [
-                "https://storage.googleapis.com/rowdyhacks/img_X_u-99SV42.png",
-                "https://storage.googleapis.com/rowdyhacks/img_ds95c0lw_.jpg",
-                "https://storage.googleapis.com/rowdyhacks/vid_cIf9PgQJ9F.mp4"
-            ]
-        }
-    ]
+  "users": [
+    {
+      "userId": "29x8s0",
+      "pass": "jask98d8s",
+      "phoneNumber": "9562469297"
+    },
+    {
+      "userId": "edrftgyh",
+      "pass": "zsxdcfvgb",
+      "phoneNumber": "2104787188"
+    }
+  ],
+  "events": [
+    {
+      "eventId": "Pdf-QOceU",
+      "lat": 29.425170742301603,
+      "long": -98.49477365422787,
+      "address": "103 N Flores St, San Antonio, TX 78205",
+      "user": "29x8s0",
+      "type": "INFO",
+      "title": "Heavy Snow",
+      "description": "Heavy snow on intersection",
+      "mediaIDS": ["sjskdn"],
+      "mediaCount": 1,
+      "date": "2021-03-27T19:19:40.797Z",
+      "dateFormatted": "Saturday, March 27, 2021",
+      "mediaURLS": [
+        "https://static01.nyt.com/images/2020/01/18/reader-center/18xp-weather/merlin_167291904_1088632b-57d3-40d1-8988-cd05d3333870-superJumbo.jpg"
+      ]
+    },
+    {
+      "eventId": "Yt4E_Ribp8",
+      "lat": 29.425137703455654,
+      "long": -98.49660577769659,
+      "address": "327 W Commerce St, San Antonio, TX 78205",
+      "user": "29x8s0",
+      "type": "EMERGENCY",
+      "title": "Car Crash",
+      "description": "Car Crash, drivers inacessible with nearby snow",
+      "mediaIDS": ["298dssd"],
+      "mediaCount": 1,
+      "date": "2021-03-27T19:19:40.812Z",
+      "dateFormatted": "Saturday, March 27, 2021",
+      "mediaURLS": [
+        "https://www.ksat.com/resizer/Rsy9sH-HbK13qfyM1mbvsdPCII8=/1280x720/smart/filters:format(jpeg):strip_exif(true):strip_icc(true):no_upscale(true):quality(65)/cloudfront-us-east-1.images.arcpublishing.com/gmg/C3LVNECVTFA5ZM5FOE3OTAURH4.png"
+      ]
+    },
+    {
+      "eventId": "qN0pe6wl-_",
+      "lat": 29.42401921083364,
+      "long": -98.50282983580581,
+      "address": "Frio Street Building, 310 S Frio St, San Antonio, TX 78207",
+      "user": "edrftgyh",
+      "type": "RESOURCE",
+      "title": "Available Water Bottles",
+      "description": "Clean Drinking water bottles available for distribution.",
+      "mediaIDS": ["29x8ss"],
+      "mediaCount": 1,
+      "date": "2021-03-27T19:19:40.813Z",
+      "dateFormatted": "Saturday, March 27, 2021",
+      "mediaURLS": [
+        "https://whatsnewlaporte.com/wp-content/uploads/2016/01/IMG_0022.jpg"
+      ]
+    },
+    {
+      "eventId": "n8eBD-kIS",
+      "lat": 29.425170742301603,
+      "long": -98.59477365422786,
+      "address": "Texas 151 Access Rd, San Antonio, TX 78237",
+      "user": "29x8s0",
+      "type": "INFO",
+      "title": "Heavy Snow",
+      "description": "Heavy snow on intersection",
+      "mediaIDS": ["sjskdn"],
+      "mediaCount": 1,
+      "date": "2021-03-27T19:19:50.825Z",
+      "dateFormatted": "Saturday, March 27, 2021",
+      "mediaURLS": [
+        "https://static01.nyt.com/images/2020/01/18/reader-center/18xp-weather/merlin_167291904_1088632b-57d3-40d1-8988-cd05d3333870-superJumbo.jpg"
+      ]
+    },
+    {
+      "eventId": "tThZJgOKd",
+      "lat": 29.4247916,
+      "long": -98.4938078,
+      "user": "edrftgyh",
+      "type": "emergency",
+      "title": "Need water",
+      "description": "water shortage",
+      "mediaIDS": [],
+      "mediaCount": 0,
+      "date": "2021-03-27T23:32:49.968Z",
+      "dateFormatted": "Saturday, March 27, 2021",
+      "address": "S Main Plaza, San Antonio, TX 78205",
+      "mediaURLS": []
+    },
+    {
+      "eventId": "Ulbxajy5G",
+      "lat": 29.4250283,
+      "long": -98.4916612,
+      "user": "edrftgyh",
+      "type": "emergency",
+      "title": "Need water",
+      "description": "water shortage",
+      "mediaIDS": [],
+      "mediaCount": 0,
+      "date": "2021-03-27T23:34:21.132Z",
+      "dateFormatted": "Saturday, March 27, 2021",
+      "address": "155 E Commerce St, San Antonio, TX 78205",
+      "mediaURLS": []
+    },
+    {
+      "eventId": "gQhgomlzk",
+      "lat": 29.4250283,
+      "long": -98.4916612,
+      "user": "edrftgyh",
+      "type": "emergency",
+      "title": "Need water",
+      "description": "water shortage",
+      "mediaIDS": ["img_ecn8I2qLR"],
+      "mediaCount": 1,
+      "date": "2021-03-27T23:35:43.113Z",
+      "dateFormatted": "Saturday, March 27, 2021",
+      "address": "155 E Commerce St, San Antonio, TX 78205",
+      "mediaURLS": ["https://storage.googleapis.com/rowdyhacks/img_ecn8I2qLR"],
+      "latestEvent": "[LAST EVENTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT]"
+    }
+  ]
 }
