@@ -110,9 +110,13 @@ app.get('/postlist', (req, res) => {
     if (!session.uId)
         res.redirect('/home');
     else {
+        const events = db.events.filter(e => e.user === session.uId);
+        const s = (o, t) => {
+            return new Date(t.date) - new Date(o.date);
+        }
         res.render('postlist', {
             userId: session.uid,
-            events: db.events.filter(e => e.user === session.uId)
+            events: events.sort(s)
         });
     }
 

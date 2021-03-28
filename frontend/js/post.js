@@ -108,6 +108,7 @@ $(window).on('load', () => {
                 country,
                 state,
                 city,
+                userId: userID,
                 zip
             },
             media: medias
