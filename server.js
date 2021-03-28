@@ -6,7 +6,8 @@ const session = require('express-session');
 const shortid = require('shortid');
 const app = express();
 const fileUpload = require('express-fileupload');
-
+const fs = require('fs');
+const fetch = require("node-fetch");
 const { Storage } = require('@google-cloud/storage');
 const storage = new Storage();
 const bucket = storage.bucket('rowdyhacks');
@@ -25,10 +26,19 @@ const sendPage = (res, pageFile) => {
     res.sendFile(path.join(pagesDir, pageFile));
 };
 
-const db = {
-    users: [],
-    events: []
+const db = JSON.parse(fs.readFileSync('./db.json', 'utf-8'));
+
+const getData = async url => {
+    try {
+        const response = await fetch(url);
+        const json = await response.json();
+        return json;
+    } catch (error) {
+        console.log(error);
+    }
 };
+
+
 
 const dateFormatOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 function User(data) {
@@ -48,70 +58,22 @@ function Event(data) {
     this.mediaCount = data.mediaIDS.length;
     this.date = data.date;
     this.dateFormatted = data.date.toLocaleDateString('en-US', dateFormatOptions);
+    this.address = data.address;
+    this.mediaURLS = data.mediaURLS;
 }
 
-const addEvent = async (event) => {
-    event.mediaURLS = [];
-    for (i in event.mediaIDS) {
-        const mediaURL = await mediaIDToURL(event.mediaIDS[i]);
-        event.mediaURLS.push(mediaURL);
-    }
-    db.events.push(event);
-    io.emit('event', event);
-}
+const saveDB = () => {
+    fs.writeFile('./db.json', JSON.stringify(db, null, 4), () => {
 
-const mediaIDToURL = (mediaID) => {
-    return new Promise((resolve, reject) => {
-        let url = 'NOPE';
-        if (mediaID === '29x8ss') {
-            url = 'https://whatsnewlaporte.com/wp-content/uploads/2016/01/IMG_0022.jpg';
-        }
-        else if (mediaID === '298dssd') {
-            url = 'https://www.ksat.com/resizer/Rsy9sH-HbK13qfyM1mbvsdPCII8=/1280x720/smart/filters:format(jpeg):strip_exif(true):strip_icc(true):no_upscale(true):quality(65)/cloudfront-us-east-1.images.arcpublishing.com/gmg/C3LVNECVTFA5ZM5FOE3OTAURH4.png';
-        }
-        else if (mediaID === 'sjskdn') {
-            url = 'https://static01.nyt.com/images/2020/01/18/reader-center/18xp-weather/merlin_167291904_1088632b-57d3-40d1-8988-cd05d3333870-superJumbo.jpg';
-        }
-        resolve(url);
     });
 }
-addEvent(new Event({
-    lat: 29.425170742301603,
-    long: -98.49477365422787,
-    user: '29x8s0',
-    type: 'INFO',
-    title: 'Heavy Snow',
-    description: 'Heavy snow on intersection',
-    mediaIDS: ['sjskdn'],
-    date: new Date()
-}));
+const addEvent = async (event) => {
+    db.events.push(event);
+    io.emit('event', event);
+    saveDB();
+}
 
-setTimeout(() => {
-    addEvent(new Event({
-        lat: 29.425170742301603,
-        long: -98.59477365422787,
-        user: '29x8s0',
-        type: 'INFO',
-        title: 'Heavy Snow',
-        description: 'Heavy snow on intersection',
-        mediaIDS: ['sjskdn'],
-        date: new Date()
-    }));
-
-}, 10000)
-
-
-addEvent(new Event({
-    lat: 29.425137703455654,
-    long: -98.49660577769659,
-    user: '29x8s0',
-    type: 'EMERGENCY',
-    title: 'Car Crash',
-    description: 'Car Crash, drivers inacessible with nearby snow',
-    mediaIDS: ['298dssd'],
-    date: new Date()
-}));
-
+/*
 addEvent(new Event({
     lat: 29.42401921083364,
     long: -98.50282983580581,
@@ -131,11 +93,7 @@ db.users.push({
     phoneNumber: '9562469297'
 });
 
-db.users.push({
-    userId: 'edrftgyh',
-    pass: 'zsxdcfvgb',
-    phoneNumber: '2104787188'
-});
+*/
 
 /*
 app.get('/', function (req, res) {
@@ -165,23 +123,84 @@ app.get('/post', (req, res) => {
     sendPage(res, 'post.html');
 });
 
-app.post('/upload', (req, res) => {
-    const files = req.files;
-    for (i in files) {
-        const file = files[i];
-        const type = i.substring(0, 3);
-        const id = type + '_' + shortid.generate();
-        const gFile = bucket.file(id);
-        const wStream = gFile.createWriteStream();
-        wStream.on('error', function (err) {
-            console.log('error', err);
-        })
-        .on('finish', function () {
-            
+app.post('/upload', async (req, res) => {
+    console.log('upload')
+    const event = JSON.parse(req.body.event);
+    const filesObj = req.files;
+    const files = [];
+    const mediaIDS = [], mediaURLS = [];
+    console.log(filesObj);
+    for (i in filesObj)
+        files.push(filesObj[i]);
+    let {
+        name,
+        type,
+        description,
+        country,
+        state,
+        city,
+        zip,
+        long,
+        lat
+    } = event;
+    let streetAddress = event.address;
+    res.send("Success");
+
+    await Promise.all(files.map(async (file) => {
+        console.log('processing', file);
+        const promise = new Promise((res, rej) => {
+            const type = file.mimetype.indexOf('image') > -1 ? 'img' : 'vid';
+            const id = type + '_' + shortid.generate();
+            const ext = file.name.substring(file.name.lastIndexOf('.'));
+            mediaIDS.push(id + ext);
+            const gFile = bucket.file(id + ext);
+            const wStream = gFile.createWriteStream();
+            wStream.on('error', rej)
+                .on('finish', async () => {
+                    try {
+                        await gFile.makePublic();
+                        mediaURLS.push(gFile.publicUrl());
+                        res();
+                    }
+                    catch (e) { rej(e); }
+                });
+            wStream.write(file.data);
+            wStream.end();
         });
-        wStream.write(file.data);
-        wStream.end();
+        await promise;
+    }));
+    const replaceSpaces = (str) => {
+        return str.trim().replace(/\s+/g, '+');
     }
+    let address;
+    if (!long && !lat) {
+        const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${replaceSpaces(streetAddress)},${replaceSpaces(city)},${state},${country}&key=AIzaSyDJXLxcAB-ZWpwwVbAK6K5bZTvWzcfn7OY`;
+        const response = await getData(url);
+        const body = response.results[0];
+        console.log(response)
+        address = body.formatted_address.substring(0, body.formatted_address.lastIndexOf(','));
+        const results = body.geometry.bounds.northeast;
+        long = results.lng;
+        lat = results.lat;
+    }
+    else {
+        address = streetAddress + ', ' + city + ', ' + state + ' ' + zip;
+    }
+
+    addEvent(new Event({
+        lat,
+        long,
+        user: 'edrftgyh',
+        type,
+        title: name,
+        description,
+        mediaIDS: mediaIDS,
+        address,
+        mediaURLS,
+        date: new Date()
+    }));
+
+
 });
 
 io.on('connection', (socket) => {

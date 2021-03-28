@@ -2,6 +2,7 @@ function Media(data) {
     this.file = data.file;
     this.url = data.url;
     this.type = data.type;
+    this.ext = data.ext;
 }
 
 let medias = [];
@@ -46,7 +47,8 @@ $(window).on('load', () => {
                 medias.push({
                     file: file,
                     type: type,
-                    url: window.URL.createObjectURL(file)
+                    url: window.URL.createObjectURL(file),
+                    ext: file.name.substring(file.name.lastIndexOf('.') + 1)
                 });
                 currInd++;
                 $('#medias-preview').append(html);
@@ -55,6 +57,11 @@ $(window).on('load', () => {
         }
     });
     $("#post-btn").click(() => {
+        var form = document.querySelectorAll('form')[0];
+        let validity = form.checkValidity();
+        form.classList.add('was-validated');
+        if (!validity)
+            return;
         const name = $('#name').val();
         const type = $('#type').val();
         const description = $('#description').val();
@@ -62,6 +69,7 @@ $(window).on('load', () => {
         const address2 = $('#address2').val();
         const country = $('#country').val();
         const state = $('#state').val();
+        const city = $('#city').val();
         const zip = $('#zip').val();
         const data = {
             event: {
@@ -71,17 +79,22 @@ $(window).on('load', () => {
                 address: address2 !== '' ? address + '\n' + address2 : address,
                 country,
                 state,
+                city,
                 zip
             },
             media: medias
         }
         const formData = new FormData();
         medias.forEach((val, ind) => {
-            const type = val.type === 'video' ? 'vid' : 'img'
-            formData.append(type+'_'+ind, val.file);
+            const type = val.type === 'video' ? 'vid' : 'img';
+            let name;
+            if (type === 'img')
+                name = type + '_' + ind;
+            else
+                name = type + '_' + ind + '.' + val.ext;
+            formData.append(name, val.file);
         })
         formData.append('event', JSON.stringify(data.event));
-        console.log(formData)
         $.ajax({
             type: "POST",
             url: '/upload',

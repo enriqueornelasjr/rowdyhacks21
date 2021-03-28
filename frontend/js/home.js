@@ -11,17 +11,22 @@ $(window).on('load', () => {
         ]
     });
     const addMarker = (event) => {
-        event.mediaURLS.push(event.mediaURLS[0]);
-        event.mediaURLS.push(event.mediaURLS[0]);
-        event.mediaURLS.push(event.mediaURLS[0]);
+        console.log(event);
         const contentString =
             '<div class="infoWindowContent">' +
             '<div class="leftHalfInfoWindow">' +
-            '<h1 class="infoWindowHeading centerText">' + event.title + '</h1>' +
+            '<h2 class="infoWindowHeading centerText">' + event.title + '</h2>' +
             '<div>' +
-            '<p class="centerText">' +
+            '<p class="centerText">' + 
             event.description
             +
+            '</p>' +
+            '<hr class="solid">' +
+            '<p class="centerText">' +
+            event.address +
+            '</p>' +
+            '<p class="centerText">' +
+            event.dateFormatted +
             '</p>' +
             '</div>' +
             '</div>' +
@@ -36,13 +41,13 @@ $(window).on('load', () => {
         });
         let markerURL;
 
-        if (event.type === 'EMERGENCY') {
+        if (event.type.toUpperCase() === 'EMERGENCY') {
             markerURL = "http://maps.google.com/mapfiles/ms/icons/red-dot.png"
         }
-        else if (event.type === 'INFO') {
+        else if (event.type.toUpperCase()  === 'INFO') {
             markerURL = "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
         }
-        else if (event.type === 'RESOURCE') {
+        else if (event.type.toUpperCase()  === 'RESOURCE') {
             markerURL = "http://maps.google.com/mapfiles/ms/icons/green-dot.png"
         }
         const marker = new google.maps.Marker({
@@ -120,9 +125,11 @@ $(window).on('load', () => {
         const mediaURLS = JSON.parse(decodeURIComponent($(e.target).attr('data-gallery')));
         const galleryItems = [];
         for (i in mediaURLS) {
-            const url = (mediaURLS[i]);
+            const url = mediaURLS[i];
+            const type = url.substring(url.lastIndexOf('/')+1, url.lastIndexOf('/')+3);
             galleryItems.push({
-                src: url
+                src: url,
+                type: type === 'vid' ? 'iframe' : undefined
             });
         }
         $(e.target).magnificPopup({

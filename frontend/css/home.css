@@ -20,8 +20,7 @@ body {
     vertical-align: middle;
 }
 .infoWindowHeading {
-    position: relative;
-    top: -15px;
+    
 }
 .infoWindowContent {
 }
@@ -32,6 +31,9 @@ body {
     cursor: pointer;
 }
 
+hr.solid {
+  border-top: 1px solid rgb(156, 153, 153);
+}
 .centerText {
     text-align: center;
 }
